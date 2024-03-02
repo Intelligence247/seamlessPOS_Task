@@ -1,9 +1,9 @@
 const ProductDetail = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+    return (
+        <div>
+            Product Details hele
+        </div>
+    )
 }
 
 export default ProductDetail

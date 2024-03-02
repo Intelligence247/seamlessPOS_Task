@@ -1,7 +1,18 @@
+import EachItem from "../Components/EachItem"
+
 const Home = () => {
     return (
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, exercitationem neque! Illo itaque laborum placeat, mollitia recusandae libero sapiente non suscipit, expedita earum delectus, officia animi voluptate! Voluptate, architecto? Saepe.
+        <div className="pt-20">
+            <div className="itemContainer grid grid-cols-2 w-[90vw] m-auto gap-2 border-[1px] border-primaryblue p-4 my-4 rounded-lg">
+                <EachItem />
+                <EachItem />
+                <EachItem />
+                <EachItem />
+                <EachItem />
+                <EachItem />
+                <EachItem />
+                <EachItem />
+            </div>
         </div>
     )
 }
