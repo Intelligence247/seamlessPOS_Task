@@ -4,6 +4,7 @@ import Carts from "./Pages/Carts";
 import Navbar from "./Components/Navbar";
 import ProductDetail from "./Pages/ProductDetail";
 import Footer from "./Components/Footer";
+import { ShopContextProvider } from "./Components/UseContext/Context";
 function App() {
 
   return (
