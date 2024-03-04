@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Rating from "../Components/Rating";
-import mockData from "../MockData";
+import mockData from "../MockData.json";
 import SimilarProductCard from "../Components/SimilarProductCard";
+import { formatCurrency } from "../Components/FornatCurrency";
 interface Rating {
   id: number;
 }
@@ -50,31 +51,28 @@ const ProductDetail = () => {
                 <div className="discountNumberdependence bg-[#fff0df] flex items-center py-3 justify-around">
                   <div className="first flex flex-col ">
                     <p className="text-red-500 font-bold">
-                      $
-                      {(
-                        selectedProduct.price -
-                        (selectedProduct.price * 5) / 100
-                      ).toFixed(2)}
+                      
+                      {formatCurrency((selectedProduct.price - (selectedProduct.price * 5) / 100))}
                     </p>
                     <p className="text-xs text-black/50">50-100 pcs</p>
                   </div>
                   <div className="first flex flex-col border-l-[1px] border-black/50 pl-4">
                     <p className="font-bold">
-                      $
+                      
                       {(
-                        selectedProduct.price -
+                        formatCurrency(selectedProduct.price -
                         (selectedProduct.price * 10) / 100
-                      ).toFixed(2)}
+                      ))}
                     </p>
                     <p className="text-xs text-black/50">100-700 pcs</p>
                   </div>
                   <div className="first flex flex-col border-l-[1px] border-black/50 pl-4">
                     <p className="font-bold">
-                      $
+                      
                       {(
-                        selectedProduct.price -
+                       formatCurrency(selectedProduct.price -
                         (selectedProduct.price * 15) / 100
-                      ).toFixed(2)}
+                      ))}
                     </p>
                     <p className="text-xs text-black/50">700+ pcs</p>
                   </div>

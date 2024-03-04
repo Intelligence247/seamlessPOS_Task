@@ -1,3 +1,5 @@
+import { formatCurrency } from "./FornatCurrency";
+
 interface EachItemProps {
   eachProduct: any;
 }
@@ -10,9 +12,9 @@ const SimilarProductCard: React.FC<EachItemProps> = ({ eachProduct }) => {
       <div className="details row-span-2 flex justify-center items-center gap-2 flex-col">
         <h1 className="font-bold">{eachProduct.name}</h1>
         <div className="price flex items-center gap-4">
-          <p className="price font-bold">${eachProduct.price}</p>
+          <p className="price font-bold">{formatCurrency(eachProduct.price)}</p>
           <p className="old_price line-through text-sm text-black/60 font-bold">
-            ${(eachProduct.price + (eachProduct.price * 20) / 100).toFixed(2)}
+         {(formatCurrency(eachProduct.price + (eachProduct.price * 20) / 100))}
           </p>
         </div>
       </div>
