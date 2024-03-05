@@ -5,6 +5,10 @@ import { useState } from "react";
 const Navbar = () => {
   const { cartQuantity } = useShoppingCart();
   const [active, sectActive] = useState(false);
+  const { searchTerm, updateSearchTerm } = useShoppingCart();
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    updateSearchTerm(e.target.value);
+  };
   return (
     <nav>
       <div className="desktopNav lg:flex hidden h-20 items-center px-20 gap-2 justify-between border-b-[1px] border-b-black/40 fixed bg-white w-full top-0 z-20">
@@ -14,7 +18,7 @@ const Navbar = () => {
         </Link>
         <div className="search flex border-[1px] border-primaryblue h-8 rounded-lg">
           <input
-            type="text"
+            type="search"
             placeholder="Search"
             className="rounded-l-lg border-none outline-none px-2 w-80"
           />
@@ -89,16 +93,43 @@ const Navbar = () => {
             active ? "left-0" : "-left-[70vw]"
           }  top-0 fixed h-screen w-[70vw] z-20 `}
         >
-
           <header className="w-full py-8 px-4 bg-gray-300 flex flex-col gap-4 items-start">
             <img src="/profile.svg" alt="" />
             <p>Sign in | Register</p>
           </header>
           <section className="py-6 flex flex-col gap-6">
-          <Link to="/" onClick={() => sectActive(!active)} className="flex gap-2 hover:text-primaryblue px-4 items-center"><img src="/home.svg" alt="" /> <span className="text-base">Home</span></Link>
-          <Link to="/carts" onClick={() => sectActive(!active)} className="flex gap-2 hover:text-primaryblue px-4 items-center"><img src="/cart.svg" alt="" /> <span className="text-base">Contact</span></Link>
-          <Link to="/" onClick={() => sectActive(!active)} className="flex gap-2 hover:text-primaryblue px-4 items-center"><img src="/about.svg" alt="" /> <span className="text-base">About</span></Link>
-          <Link to="/" onClick={() => sectActive(!active)} className="flex gap-2 hover:text-primaryblue px-4 items-center"><img src="/contact.svg" alt="" /> <span className="text-base">Contact</span></Link>
+            <Link
+              to="/"
+              onClick={() => sectActive(!active)}
+              className="flex gap-2 hover:text-primaryblue px-4 items-center"
+            >
+              <img src="/home.svg" alt="" />{" "}
+              <span className="text-base">Home</span>
+            </Link>
+            <Link
+              to="/carts"
+              onClick={() => sectActive(!active)}
+              className="flex gap-2 hover:text-primaryblue px-4 items-center"
+            >
+              <img src="/cart.svg" alt="" />{" "}
+              <span className="text-base">Contact</span>
+            </Link>
+            <Link
+              to="/"
+              onClick={() => sectActive(!active)}
+              className="flex gap-2 hover:text-primaryblue px-4 items-center"
+            >
+              <img src="/about.svg" alt="" />{" "}
+              <span className="text-base">About</span>
+            </Link>
+            <Link
+              to="/"
+              onClick={() => sectActive(!active)}
+              className="flex gap-2 hover:text-primaryblue px-4 items-center"
+            >
+              <img src="/contact.svg" alt="" />{" "}
+              <span className="text-base">Contact</span>
+            </Link>
           </section>
         </div>
         <div
