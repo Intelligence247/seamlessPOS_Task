@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
-import Carts from "./Pages/Carts";
 import Navbar from "./Components/Navbar";
 import ProductDetail from "./Pages/ProductDetail";
 import Footer from "./Components/Footer";
 import { ShoppingCartProvider } from "./Context/Context";
+import ShoppingCart from "./Context/ShoppingCart";
 
 function App() {
   return (
@@ -14,11 +14,12 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/carts" element={<Carts />} />
+        <Route path="/carts" element={<ShoppingCart />} />
         <Route path="/productdetails" element={<ProductDetail />} />
       </Routes>
-      <Footer />
       </ShoppingCartProvider>
+
+      <Footer />
     </div>
   );
 }

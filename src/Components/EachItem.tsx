@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Rating from "./Rating";
 import { Link } from "react-router-dom";
 import { formatCurrency } from "./FornatCurrency";
@@ -28,7 +27,7 @@ export default function EachItem({
   } = useShoppingCart();
   const quantity = getItemQuantity(id);
   return (
-    <div className="flex border-[1px] border-black/40 rounded-lg py-2 gap-6">
+    <div className="flex border-[1px] border-black/40 rounded-lg py-2 px-2 gap-6">
       <div className="img w-[20rem]">
         <img
           src={image}
@@ -45,8 +44,8 @@ export default function EachItem({
           </p>
         </div>
         <Rating />
-        <div className="desc w-full">{description.slice(0, 110)}...</div>
-        <div className="addtocart flex gap-4">
+        <div className="desc w-full lg:block hidden">{description.slice(0, 110)}...</div>
+        <div className="addtocart flex lg:gap-4 gap-2 lg:flex-row flex-col lg:w-full w-40">
           <Link
             onClick={() =>
               localStorage.setItem("selectedID", JSON.stringify(id))
@@ -56,17 +55,37 @@ export default function EachItem({
           >
             Vie w Details
           </Link>
-          <div className="border-[1px] border-primaryblue rounded-2xl px-2 bg-primaryblue text-white lg:text-[14px] text-xs hover:bg-transparent hover:text-black">
+          <div className="h-16">
             {quantity == 0 ? (
-              <button onClick={() => increaseCartQuantity(id)}>
+              <button
+                className="border-[1px] border-primaryblue rounded-2xl px-2 bg-primaryblue text-white lg:text-[14px] text-xs hover:bg-transparent hover:text-black p-1"
+                onClick={() => increaseCartQuantity(id)}
+              >
                 + Add to Cart
               </button>
             ) : (
-              <div>
-                <p onClick={() => increaseCartQuantity(id)}>+</p>
-                <p>{quantity}</p>
-                <p onClick={() => decreaseCartQuantity(id)}>Remove</p>
-                <p onClick={() => decreaseCartQuantity(id)}>- </p>
+              <div className="flex flex-col w-40 items-center">
+                <div className="flex justify-between items-center w-full">
+                  <button
+                    className="flex justify-center items-center rounded-lg h-8 w-8 bg-gray-300 hover:bg-white hover:border-[1.5px] hover:border-primaryblue/80 text-xl font-bold"
+                    onClick={() => decreaseCartQuantity(id)}
+                  >
+                    -{" "}
+                  </button>
+                  <p>{quantity}</p>
+                  <button
+                    className="flex justify-center items-center rounded-lg h-8 w-8 bg-gray-300 hover:bg-white hover:border-[1.5px] hover:border-primaryblue/80 font-bold"
+                    onClick={() => increaseCartQuantity(id)}
+                  >
+                    +
+                  </button>
+                </div>
+                <button
+                  className="bg-red-500 text-white w-max px-4 py-1 rounded-lg"
+                  onClick={() => removeFromCart(id)}
+                >
+                  Remove
+                </button>
               </div>
             )}
           </div>

@@ -9,7 +9,7 @@
 }
 
 *::-webkit-scrollbar {
-  @apply lg:w-[6px] bg-black/70;
+  @apply lg:w-[6px] w-0 bg-black/70;
 }
 *::-webkit-scrollbar-thumb {
   @apply bg-primaryblue/70 rounded-full;

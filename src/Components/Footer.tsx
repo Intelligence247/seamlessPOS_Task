@@ -15,11 +15,11 @@ const Footer = () => {
   };
 
   return (
-    <div className="lg:px-20 px-4 py-10 flex gap-8 ">
-      <div className="brannd w-1/3 flex flex-col gap-4">
+    <div className="lg:px-20 px-4 py-10 flex lg:flex-row flex-col gap-8 ">
+      <div className="brannd lg:w-1/3 flex flex-col gap-4">
         <div className="logo flex items-center ">
-          <img src="/logo.png" alt="" />
-          <span className="text-primaryblue/60 text-2xl font-bold">Brand</span>
+          <img src="/logo.png" className="lg:w-10 w-8" alt="" />
+          <span className="text-primaryblue/60 lg:text-2xl text-xl font-bold">Brand</span>
         </div>
         <p>
           Best information about the company gies here but now lorem ipsum is
@@ -47,7 +47,7 @@ const Footer = () => {
           />
         </div>
       </div>
-      <div className="w-full grid grid-cols-4">
+      <div className="w-full grid lg:grid-cols-4 grid-cols-2 lg:gap-0 gap-8">
         <FooterCard footerData={footerData.About} />
         <FooterCard footerData={footerData.Partner} />
         <FooterCard footerData={footerData.Information} />
