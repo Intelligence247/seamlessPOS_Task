@@ -92,7 +92,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const getSearchResult = () => {
     return mockData.filter((item) => item.name.toLowerCase().includes(search));
   };
-
+  
   return (
     <ShoppingCartContext.Provider
       value={{

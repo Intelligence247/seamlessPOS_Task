@@ -40,7 +40,7 @@ const ProductDetail = () => {
   return (
     <div className="pt-20">
       {selectedProduct == null || selectedProduct == undefined ? (
-        <div className="flex justify-center items-center gap-8 flex-col h-[50vh]">
+        <div data-aos="fade-up" className="flex justify-center items-center gap-8 flex-col h-[50vh]">
           <h1 className="font-bold lg:text-3xl">
             There's a problem returning the chosen product
           </h1>
@@ -55,15 +55,15 @@ const ProductDetail = () => {
         <main className="lg:w-[85vw] m-auto px-4 py-4 border-primaryblue border-[1px] my-4 flex flex-col gap-6 h-full">
           <div className="grid lg:grid-cols-3 grid-cols-1">
             <aside className="col-span-2 flex items-center lg:flex-row flex-col lg:border-r-[1px] border-black/30">
-              <div className="img w-1/3 flex justify-center items-start h-full">
+              <div data-aos="flip-up" className="img w-1/3 flex justify-center items-start h-full">
                 <img
                   src={selectedProduct.image}
                   className="lg:h-[70%] lg:w-full shadow-xl min-w-64 h-40"
                   alt="Product Image"
                 />
               </div>
-              <div className="details flex flex-col lg:gap-5 gap-3 lg:p-4 p-2 w-full lg:w-2/3">
-                <p className="text-green-500">✓ in stock</p>
+              <div data-aos="fade-up" className="details flex flex-col lg:gap-5 gap-3 lg:p-4 p-2 w-full lg:w-2/3">
+                <p  className="text-green-500">✓ in stock</p>
                 <h1 className="font-bold">{selectedProduct.name}</h1>
                 <Rating />
                 <div className="discountNumberdependence lg:rounded-none rounded-lg bg-[#fff0df] flex items-center py-3 justify-around">
@@ -156,7 +156,7 @@ const ProductDetail = () => {
                 </div>
               </div>
             </aside>
-            <aside className="Similar flex flex-col justify-start items-center h-[90vh] py-5 overflow-y-auto gap-5 shadow-lg lg:border-none border-black/30 border-[1px]">
+            <aside  className="Similar flex flex-col justify-start items-center h-[90vh] py-5 overflow-y-auto gap-5 shadow-lg lg:border-none border-black/30 border-[1px]">
               <h1 className="lg:text-xl text-lg font-bold text-primaryblue">Related Products</h1>
               <hr className="w-4/5" />
               {similar.map((s: any, i: number) => (

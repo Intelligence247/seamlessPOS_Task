@@ -2,6 +2,8 @@ import Rating from "./Rating";
 import { Link } from "react-router-dom";
 import { formatCurrency } from "./FornatCurrency";
 import { useShoppingCart } from "../Context/Context";
+import "aos/dist/aos.css";
+
 
 type storeItemProps = {
   id: number;
@@ -26,8 +28,12 @@ export default function EachItem({
     removeFromCart,
   } = useShoppingCart();
   const quantity = getItemQuantity(id);
+
   return (
-    <div className="flex border-[1px] border-black/40 rounded-lg py-2 px-2 gap-6">
+    <div
+      data-aos="fade-up"
+      className="flex border-[1px] border-black/40 rounded-lg py-2 px-2 gap-6"
+    >
       <div className="img w-[20rem]">
         <img
           src={image}
@@ -44,7 +50,9 @@ export default function EachItem({
           </p>
         </div>
         <Rating />
-        <div className="desc w-full lg:block hidden">{description.slice(0, 110)}...</div>
+        <div className="desc w-full lg:block hidden">
+          {description.slice(0, 110)}...
+        </div>
         <div className="addtocart flex lg:gap-4 gap-2 lg:flex-row flex-col lg:w-full w-40">
           <Link
             onClick={() =>
@@ -53,7 +61,7 @@ export default function EachItem({
             to="/productdetails"
             className="text-primaryblue hover:opacity-70"
           >
-            Vie w Details
+            View Details
           </Link>
           <div className="h-16">
             {quantity == 0 ? (

@@ -15,7 +15,7 @@ export default function ShoppingCart() {
   const finalTotal = totals - Discount + tax;
   console.log(cartItems)
   return (
-    <div className="pt-20 lg:px-20 px-4">
+    <div className="lg:pt-20 pt-32 lg:px-20 px-4">
       {cartItems.length == 0 || cartItems == null ? (
         <div className="flex justify-center items-center gap-8 flex-col h-[50vh]">
           <h1 className="font-bold lg:text-3xl">Your cart is empty</h1>
@@ -70,9 +70,9 @@ export default function ShoppingCart() {
                 </p>
               </div>
 
-              <button className="h-12 bg-primary_green rounded-lg w-full text-white font-bold">
+              <Link onClick={()=> localStorage.setItem("finalTotal", JSON.stringify(finalTotal))} to={"/checkout"} className="h-12 bg-primary_green rounded-lg w-max flex justify-center items-center px-8 py-2 m-auto text-white font-bold">
                 Checkout
-              </button>
+              </Link>
             </div>
           </aside>
         </div>

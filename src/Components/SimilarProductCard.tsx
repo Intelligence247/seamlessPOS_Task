@@ -5,7 +5,7 @@ interface EachItemProps {
 }
 const SimilarProductCard: React.FC<EachItemProps> = ({ eachProduct }) => {
   return (
-        <div className="h-[15rem] w-[15rem] grid grid-rows-5 border-[1px] border-black/30 p-3 rounded-lg gap-4">
+        <div  className="h-[15rem] w-[15rem] grid grid-rows-5 border-[1px] border-black/30 p-3 rounded-lg gap-4">
       <div className="image row-span-3 grid place-content-center border-[1px] border-primaryblue rounded-lg">
         <img className="w-[12rem] h-[7rem] " src={eachProduct.image} alt="" />
       </div>
