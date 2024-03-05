@@ -21,6 +21,8 @@ const Home = () => {
           </button>
         </div>
       </div>
+      <div className="lg:text-xl text-2xl w-full text-center font-bold">Available products</div>
+
       {getSearchResult().length >= 1 ? (
         <div className="itemContainer lg:mx-20 mx-4  grid lg:grid-cols-2 grid-cols-1 m-auto gap-2 border-[1px] border-primaryblue lg:p-4 p-2 my-4 rounded-lg">
           {getSearchResult().map((m: any, i: number) => (
@@ -35,11 +37,6 @@ const Home = () => {
         </div>
       )}
 
-      {/* <div className="itemContainer grid lg:grid-cols-2 grid-cols-1  lg:w-[90vw] m-auto gap-2 border-[1px] border-primaryblue lg:p-4 p-2 my-4 rounded-lg">
-        {getSearchResult().map((m: any, i: number) => (
-          <EachItem key={i} {...m} />
-        ))}
-      </div> */}
       <div className="newletter bg-[#eff2f4] flex flex-col justify-center items-center py-6">
         <h1 className="font-bold lg:text-2xl text-xl">
           Subscribe on our newsletter

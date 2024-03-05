@@ -21,6 +21,7 @@ type ShoppingCartContext = {
   removeAll: () => void;
   getSearchResult: () => any;
   settingSearch: (searchValue: string) => void;
+  searchByFunc: (searchBy: string) => void;
 };
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
 
@@ -34,6 +35,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     []
   );
   const [search, setSearch] = useState("");
+  const [searchBy, setSearchBy] = useState<boolean>(false);
 
   const cartQuantity = cartItems.reduce(
     (quantiy, item) => item.quantity + quantiy,
@@ -88,11 +90,17 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const settingSearch = (searchValue: string) => {
     setSearch(searchValue);
   };
-
-  const getSearchResult = () => {
-    return mockData.filter((item) => item.name.toLowerCase().includes(search));
+  const searchByFunc = (searchBy: string) => {
+    searchBy == "byname" ? setSearchBy(true) : setSearchBy(false);
   };
-  
+  const getSearchResult = () => {
+    return mockData.filter((item) =>
+      searchBy
+        ? item.name.toLowerCase().includes(search)
+        : item.additionalDetails.category.toLocaleLowerCase().includes(search)
+    );
+  };
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -105,6 +113,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         removeAll,
         getSearchResult,
         settingSearch,
+        searchByFunc,
       }}
     >
       {children}

@@ -159,9 +159,11 @@ const ProductDetail = () => {
             <aside  className="Similar flex flex-col justify-start items-center h-[90vh] py-5 overflow-y-auto gap-5 shadow-lg lg:border-none border-black/30 border-[1px]">
               <h1 className="lg:text-xl text-lg font-bold text-primaryblue">Related Products</h1>
               <hr className="w-4/5" />
-              {similar.map((s: any, i: number) => (
+              {similar.length >=1 ?(similar.map((s: any, i: number) => (
                 <SimilarProductCard key={i} eachProduct={s} />
-              ))}
+              ))):(
+                <div>No Other Item is Related </div>
+              )}
             </aside>
           </div>
 

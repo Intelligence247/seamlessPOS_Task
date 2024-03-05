@@ -4,22 +4,29 @@
     "name": "Samsung Galaxy A Series",
     "description": "Capture life\"s moments in stunning detail with the triple rear camera system.  Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante blandit auctor. Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis ornare vel eu leo.",
     "price": 49.99,
-    "image": "/phone1.png",
-    "features": ["Large Display for Immersive Viewing", "Triple Camera System for Versatile Photography", "Long-lasting Battery for Uninterrupted Use"],
+    "image": "/mockImages/phone1.png",
+    "features": [
+      "Large Display for Immersive Viewing",
+      "Triple Camera System for Versatile Photography",
+      "Long-lasting Battery for Uninterrupted Use"
+    ],
     "additionalDetails": {
       "type": "Samsung",
       "category": "phone",
       "warranty": 2
     }
-
   },
   {
     "id": 2,
     "name": "Apple iPhone 12",
     "description": "Experience the power of 5G with the Apple iPhone 12. A14 Bionic chip for blazing fast performance. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante blandit auctor. Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis ornare vel eu leo.",
     "price": 799.99,
-    "image": "/iphone12.png",
-    "features": ["5G Connectivity for Ultra-Fast Speeds", "A14 Bionic Chip for Powerful Performance", "Super Retina XDR Display for Crisp Visuals"],
+    "image": "/mockImages/phone2.svg",
+    "features": [
+      "5G Connectivity for Ultra-Fast Speeds",
+      "A14 Bionic Chip for Powerful Performance",
+      "Super Retina XDR Display for Crisp Visuals"
+    ],
     "additionalDetails": {
       "type": "Apple",
       "category": "phone",
@@ -31,36 +38,46 @@
     "name": "Google Pixel 5",
     "description": "Capture stunning photos with Night Sight and take your mobile photography to the next level. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante blandit auctor. Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis ornare vel eu leo.",
     "price": 699.99,
-    "image": "/pixel5.png",
-    "features": ["Night Sight for Low-Light Photography", "OLED Display for Vibrant Colors", "Google Assistant for Smart Assistance"],
+    "image": "/mockImages/phone3.svg",
+    "features": [
+      "Night Sight for Low-Light Photography",
+      "OLED Display for Vibrant Colors",
+      "Google Assistant for Smart Assistance"
+    ],
     "additionalDetails": {
       "type": "Google",
       "category": "phone",
       "warranty": 2
     }
   },
-
   {
     "id": 4,
     "name": "OnePlus 9 Pro",
     "description": "Experience flagship performance with the OnePlus 9 Pro. Fluid AMOLED display and Hasselblad camera system. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante blandit auctor. Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis ornare vel eu leo.",
     "price": 899.99,
-    "image": "/oneplus9pro.png",
-    "features": ["Fluid AMOLED Display for Smooth Visuals", "Hasselblad Camera System for Pro Photography", "Fast Charging for Quick Power-ups"],
+    "image": "mockImages/phone4.svg",
+    "features": [
+      "Fluid AMOLED Display for Smooth Visuals",
+      "Hasselblad Camera System for Pro Photography",
+      "Fast Charging for Quick Power-ups"
+    ],
     "additionalDetails": {
       "type": "OnePlus",
       "category": "phone",
       "warranty": 1
     }
   },
-
   {
     "id": 5,
     "name": "Xiaomi Mi 11",
     "description": "Unleash the power of the Snapdragon 888 with the Xiaomi Mi 11. Stunning AMOLED display and versatile camera setup. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante blandit auctor. Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis ornare vel eu leo.",
     "price": 749.99,
-    "image": "/mi11.png",
-    "features": ["Snapdragon 888 for Powerful Performance", "AMOLED Display for Brilliant Colors", "Versatile Camera Setup for Creative Photography"],
+    "image": "mockImages/phone5.jpg",
+    "features": [
+      "Snapdragon 888 for Powerful Performance",
+      "AMOLED Display for Brilliant Colors",
+      "Versatile Camera Setup for Creative Photography"
+    ],
     "additionalDetails": {
       "type": "Xiaomi",
       "category": "phone",
@@ -72,8 +89,12 @@
     "name": "Dell Inspiron Desktop",
     "description": "Powerful and reliable, the Dell Inspiron Desktop is designed for productivity and entertainment. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante blandit auctor. Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis ornare vel eu leo.",
     "price": 899.99,
-    "image": "https://example.com/dell_inspiron_desktop.png",
-    "features": ["10th Gen Intel Core Processor", "Large Storage Capacity", "Integrated Graphics for Smooth Visuals"],
+    "image": "mockImages/pc1.svg",
+    "features": [
+      "10th Gen Intel Core Processor",
+      "Large Storage Capacity",
+      "Integrated Graphics for Smooth Visuals"
+    ],
     "additionalDetails": {
       "type": "Dell",
       "category": "pc",
@@ -85,8 +106,12 @@
     "name": "HP Pavilion Gaming Desktop",
     "description": "Immerse yourself in gaming with the HP Pavilion Gaming Desktop. Powerful graphics and customizable RGB lighting. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante blandit auctor. Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis ornare vel eu leo.",
     "price": 1299.99,
-    "image": "https://example.com/hp_pavilion_gaming_desktop.png",
-    "features": ["NVIDIA GeForce GTX Graphics", "High Refresh Rate for Smooth Gameplay", "Upgradeable Design for Future Enhancements"],
+    "image": "mockImages/pc2.jpg",
+    "features": [
+      "NVIDIA GeForce GTX Graphics",
+      "High Refresh Rate for Smooth Gameplay",
+      "Upgradeable Design for Future Enhancements"
+    ],
     "additionalDetails": {
       "type": "HP",
       "category": "pc",
@@ -98,8 +123,12 @@
     "name": "Acer Aspire TC",
     "description": "The Acer Aspire TC offers a balance of performance and affordability. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante blandit auctor. Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis ornare vel eu leo.",
     "price": 599.99,
-    "image": "https://example.com/acer_aspire_tc.png",
-    "features": ["Intel Core i5 Processor", "Expandable Storage Options", "Compact Form Factor"],
+    "image": "mockImages/pc3.jpg",
+    "features": [
+      "Intel Core i5 Processor",
+      "Expandable Storage Options",
+      "Compact Form Factor"
+    ],
     "additionalDetails": {
       "type": "Acer",
       "category": "pc",
@@ -111,16 +140,132 @@
     "name": "Custom-Built Gaming PC",
     "description": "Build your dream gaming rig with our custom-built gaming PC. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante blandit auctor. Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis ornare vel eu leo.",
     "price": 1499.99,
-    "image": "https://example.com/custom_built_gaming_pc.png",
-    "features": ["High-End Graphics Card Options", "RGB Lighting for Personalization", "Advanced Cooling Solutions"],
+    "image": "mockImages/pc4.jpg",
+    "features": [
+      "High-End Graphics Card Options",
+      "RGB Lighting for Personalization",
+      "Advanced Cooling Solutions"
+    ],
     "additionalDetails": {
       "type": "Custom",
       "category": "pc",
       "warranty": 1
     }
+  },
+  {
+    "id": 10,
+    "name": "Cotton T-Shirt",
+    "description": "A comfortable and stylish cotton t-shirt, perfect for everyday wear.",
+    "price": 19.99,
+    "image": "/mockImages/cloth1.svg",
+    "features": [
+      "Soft and breathable cotton material",
+      "Available in various colors and sizes"
+    ],
+    "additionalDetails": {
+      "type": "hoodie",
+      "category": "cloth",
+      "warranty": 1
+    }
+  },
+  {
+    "id": 11,
+    "name": "Denim Jeans",
+    "description": "Classic and timeless denim jeans, perfect for any casual outfit.",
+    "price": 49.99,
+    "image": "/mockImages/cloth2.svg",
+    "features": [
+      "Durable denim fabric",
+      "Comfortable relaxed fit"
+    ],
+    "additionalDetails": {
+      "type": "shirt",
+      "category": "cloth",
+      "warranty": 2
+    }
+  },
+  {
+    "id": 12,
+    "name": "Cozy Hoodie",
+    "description": "Stay warm and comfortable with this soft and cozy hoodie.",
+    "price": 39.99,
+    "image": "/mockImages/cloth3.svg",
+    "category": "cloth",
+    "features": [
+      "Fleece lining for warmth",
+      "Spacious kangaroo pocket"
+    ],
+    "additionalDetails": {
+      "type": "top",
+      "category": "cloth",
+      "warranty": 3
+    }
+  },
+  {
+    "id": 13,
+    "name": "Wireless Noise-Cancelling Headphones",
+    "description": "Enjoy immersive audio and eliminate distractions with these wireless noise-cancelling headphones.",
+    "price": 199.99,
+    "image": "/mockImages/headphone1.svg",
+    "features": [
+      "Active noise cancellation",
+      "Wireless Bluetooth connection",
+      "Long battery life"
+    ],
+    "additionalDetails": {
+      "type": "Apple",
+      "category": "headphones",
+      "warranty": 3
+    }
+  },
+  {
+    "id": 14,
+    "name": "On-Ear Headphones",
+    "description": "Lightweight and comfortable on-ear headphones, perfect for everyday use.",
+    "price": 49.99,
+    "image": "/mockImages/headphone2.svg",
+    "features": [
+      "Lightweight design",
+      "Clear and crisp audio",
+      "Wired connection"
+    ],
+    "additionalDetails": {
+      "type": "Big",
+      "category": "headphones",
+      "warranty": 1
+    }
+  },
+  {
+    "id": 15,
+    "name": "Gaming Headset",
+    "description": "Immerse yourself in your games with this high-performance gaming headset.",
+    "price": 99.99,
+    "image": "/mockImages/headphone3.jpg",
+    "features": [
+      "Surround sound for enhanced immersion",
+      "Comfortable design with microphone"
+    ],
+    "additionalDetails": {
+      "type": "Small",
+      "category": "headphones",
+      "warranty": 2
+    }
+  },
+  {
+    "id": 16,
+    "name": "Wireless Earbuds",
+    "description": "Enjoy true wireless freedom with these convenient and compact earbuds.",
+    "price": 79.99,
+    "image": "/mockImages/headphone4.jpg",
+    "features": [
+      "True wireless design",
+      "Touch controls for music and calls",
+      "Long battery life"
+    ],
+    "additionalDetails": {
+      "type": "Small",
+      "category": "headphones",
+      "warranty": 2
+    }
   }
-  
-  
 ]
-
-

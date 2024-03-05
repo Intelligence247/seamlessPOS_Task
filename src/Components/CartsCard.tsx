@@ -31,7 +31,7 @@ export default function CartsCard({ id, quantity }: cartcardProps) {
       <div className="img w-full h-full p-2 grid-cols-1">
         <img
         onClick={ToastFUn}
-          src="phone1.png"
+          src={item.image}
           className="rounded-lg lg:h-full lg:w-full w-64"
           alt=""
         />

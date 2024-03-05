@@ -32,9 +32,9 @@ export default function EachItem({
   return (
     <div
       data-aos="fade-up"
-      className="flex border-[1px] border-black/40 rounded-lg py-2 px-2 gap-6"
+      className="flex  border-[1px] border-black/40 rounded-lg py-2 px-2 gap-6"
     >
-      <div className="img w-[20rem]">
+      <div className="img lg:w-[20rem]">
         <img
           src={image}
           alt="Product Image"
