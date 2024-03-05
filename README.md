@@ -14,6 +14,7 @@ This web application serves as a simple yet functional ecommerce point of sale s
 - [TypeScript](#typescript)
 - [Mock API](#mock-api)
 - [Contributing](#contributing)
+- [Preview](#preview)
 - [License](#license)
 
 ## Features
@@ -27,15 +28,17 @@ This web application serves as a simple yet functional ecommerce point of sale s
    - Options to add the item to the cart or make a purchase.
    - Button or link to return to the homepage.
    - Displays related Items to the viewed item.
-
-3. **Styling:**
+3. **Checkout view:**
+   - Displays the total amount of money to be paid
+   - Contains the necssary inputs to checkout by the user
+4. **Styling:**
    - Styled to resemble an ecommerce platform.
    - Utilizes Tailwind CSS for a visually appealing and responsive design.
 
-4. **TypeScript:**
+5. **TypeScript:**
    - Codebase is entirely written in React TypeScript  for static typing and improved code quality.
 
-5. **Mock API:**
+6. **Mock API:**
    - Utilizes a mock JSON data to fetch the list of items available for sale.
 
 ## Technologies Used
@@ -69,6 +72,18 @@ A mock JSON data is used to fetch the list of items available for sale.
 ## Contributing
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
+## Preview 
+[Go Live](https://seamless-ecommerce.vercel.app/)
+
+- Home page
+![screenshot](public/seamless.png)
+
+- Shopping-Cart page
+![screenshot](public/seamless2.png)
+- Product-Details page
+![screenshot](public/seamless3.png)
+- Checkout page
+![screenshot](public/seamless4.png)
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
