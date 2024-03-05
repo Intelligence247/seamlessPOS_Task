@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useContext, useState } from "react";
 import { useLocalStorage } from "../Hooks/useLocalStorage";
+import mockData from "../MockData.json";
 
 type ShoppingCartProviderProps = {
   children: ReactNode;
@@ -11,8 +12,6 @@ type CartItem = {
 };
 
 type ShoppingCartContext = {
-  openCart: () => void;
-  closeCart: () => void;
   getItemQuantity: (id: number) => number;
   increaseCartQuantity: (id: number) => void;
   decreaseCartQuantity: (id: number) => void;
@@ -20,6 +19,8 @@ type ShoppingCartContext = {
   cartQuantity: number;
   cartItems: CartItem[];
   removeAll: () => void;
+  getSearchResult: () => any;
+  settingSearch: (searchValue: string) => void;
 };
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
 
@@ -28,19 +29,16 @@ export function useShoppingCart() {
 }
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
-  const [isOpen, setIsOpen] = useState(false);
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
     "shopping-cart",
     []
   );
+  const [search, setSearch] = useState("");
 
   const cartQuantity = cartItems.reduce(
     (quantiy, item) => item.quantity + quantiy,
     0
   );
-
-  const openCart = () => setIsOpen(true);
-  const closeCart = () => setIsOpen(false);
 
   function getItemQuantity(id: number) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
@@ -87,6 +85,14 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     setCartItems([]);
   }
 
+  const settingSearch = (searchValue: string) => {
+    setSearch(searchValue);
+  };
+
+  const getSearchResult = () => {
+    return mockData.filter((item) => item.name.toLowerCase().includes(search));
+  };
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -96,9 +102,9 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         removeFromCart,
         cartItems,
         cartQuantity,
-        openCart,
-        closeCart,
         removeAll,
+        getSearchResult,
+        settingSearch,
       }}
     >
       {children}

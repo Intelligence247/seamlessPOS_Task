@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import CartsCard from "../Components/CartsCard";
 import { formatCurrency } from "../Components/FornatCurrency";
-import mockData from "../MockData";
 import { useShoppingCart } from "./Context";
+import mockData from "../MockData.json"
 
 export default function ShoppingCart() {
   const { cartItems, removeAll } = useShoppingCart();

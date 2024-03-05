@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../Context/Context";
-import { useState } from "react";
+import {  useState } from "react";
 
 const Navbar = () => {
-  const { cartQuantity } = useShoppingCart();
+  const { cartQuantity, settingSearch } = useShoppingCart();
   const [active, sectActive] = useState(false);
-  const { searchTerm, updateSearchTerm } = useShoppingCart();
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    updateSearchTerm(e.target.value);
-  };
+  
+  
   return (
     <nav>
       <div className="desktopNav lg:flex hidden h-20 items-center px-20 gap-2 justify-between border-b-[1px] border-b-black/40 fixed bg-white w-full top-0 z-20">
@@ -21,15 +19,19 @@ const Navbar = () => {
             type="search"
             placeholder="Search"
             className="rounded-l-lg border-none outline-none px-2 w-80"
+            onChange={(e)=> settingSearch(e.target.value)}
           />
           <select
             name=""
             id=""
-            className="px-2 border-x-[1px] border-primaryblue"
+            className="px-2 border-x-[1px] border-primaryblue outline-none"
           >
-            <option value="">All category</option>
+            <option value="">Select Search type</option>
+            <option value="">Search by name</option>
+            <option value="">Search by Category</option>
+
           </select>
-          <button className="bg-primaryblue rounded-r-lg px-2 text-white">
+          <button className="bg-primaryblue rounded-r-lg px-4 text-white">
             Search
           </button>
         </div>
@@ -58,7 +60,28 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="h-20 px-4 lg:hidden flex w-full justify-between border-b-[1px] border-b-black/30 items-center fixed bg-white shadow-sm ">
+
+<section className=" lg:hidden flex flex-col gap-3 bg-white h-[9rem] w-full shadow-lg fixed top-0 left-0 ">
+<div className="search mx-4 flex border-[1px] border-primaryblue h-12 bg-gray-500 rounded-lg fixed z-0 top-[5.5rem]">
+          <input
+            type="search"
+            placeholder="Search"
+            className="rounded-l-lg border-none outline-none px-2 w-[14.5rem] "
+            onChange={(e)=> settingSearch(e.target.value)}
+          />
+          <select
+            name=""
+            id=""
+            className="px-2 border-x-[1px] border-primaryblue outline-none"
+          >
+            <option value="">Select Search type</option>
+            <option value="">Search by name</option>
+            <option value="">Search by Category</option>
+
+          </select>
+         
+        </div>
+      <div className="h-20 px-4 flex w-full justify-between border-b-[1px] border-b-black/30 items-center fixed bg-white shadow-sm ">
         <section className="flex items-center gap-6">
           <div
             onClick={() => sectActive(!active)}
@@ -91,7 +114,7 @@ const Navbar = () => {
         <div
           className={`bg-white/60 backdrop-blur-lg ${
             active ? "left-0" : "-left-[70vw]"
-          }  top-0 fixed h-screen w-[70vw] z-20 `}
+          }  top-0 fixed h-screen w-[70vw] z-20`}
         >
           <header className="w-full py-8 px-4 bg-gray-300 flex flex-col gap-4 items-start">
             <img src="/profile.svg" alt="" />
@@ -139,6 +162,8 @@ const Navbar = () => {
           } bg-black/30 backdrop-blur-lg z-20`}
         ></div>
       </div>
+     
+      </section>
     </nav>
   );
 };
