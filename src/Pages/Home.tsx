@@ -26,7 +26,7 @@ const Home = () => {
       <div className="lg:text-4xl text-2xl w-full text-center font-bold">Available products</div>
 
       {getSearchResult().length >= 1 ? (
-        <div className="itemContainer lg:mx-20 mx-4  grid lg:grid-cols-2 grid-cols-1 m-auto gap-2 border-[1px] border-primaryblue lg:p-4 p-2 my-4 rounded-lg">
+        <div className="itemContainer lg:mx-20 mx-4  grid lg:grid-cols-2 grid-cols-1 m-auto gap-4 border-[1px] border-primaryblue lg:p-4 p-2 my-4 rounded-lg">
           {getSearchResult().map((m: any, i: number) => (
             <EachItem key={i} {...m} />
           ))}

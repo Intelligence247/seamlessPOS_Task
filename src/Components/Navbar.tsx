@@ -69,7 +69,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <section className={`lg:hidden flex flex-col bg-white h-[8.5rem] w-full shadow-lg fixed ${!visible?"-top-0": "-top-20"}`}>
+      <section className={`lg:hidden flex flex-col bg-white h-[8.5rem] w-full shadow-lg fixed z-20 ${!visible?"-top-0": "-top-20"}`}>
         <div className="h-20 px-6 flex w-full justify-between border-b-[1px] border-b-black/30 items-center bg-white shadow-sm ">
           <section className="flex items-center gap-6">
             <div
@@ -120,7 +120,7 @@ const Navbar = () => {
         </div>
 
         <div
-          className={`bg-white/60 backdrop-blur-lg ${
+          className={`bg-white backdrop-blur-lg ${
             active ? "left-0" : "-left-[70vw]"
           }  top-0 fixed h-screen w-[70vw] z-20`}
         >
@@ -168,7 +168,7 @@ const Navbar = () => {
           onClick={() => setActive(!active)}
           className={`overlay fixed w-[30%] h-screen top-0 ${
             active ? "left-[70%]" : "-left-[30%]"
-          } bg-black/30 backdrop-blur-lg z-20`}
+          } bg-black/5 backdrop-blur-sm z-20`}
         ></div>
       </section>
     </nav>
