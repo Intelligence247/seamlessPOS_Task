@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const Navbar = () => {
   const { cartQuantity, settingSearch, searchByFunc } = useShoppingCart();
   const [active, setActive] = useState<boolean>(false);
-  const [visible, setVisible] = useState<boolean>(true);
+  const [visible, setVisible] = useState<boolean>(false);
 
   useEffect(() => {
     let prevS = window.pageYOffset;
