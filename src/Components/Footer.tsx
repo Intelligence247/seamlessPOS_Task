@@ -15,7 +15,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="lg:px-20 px-4 py-10 flex lg:flex-row flex-col gap-8 ">
+    <div className="lg:px-20 px-8 py-10 flex lg:flex-row flex-col gap-8 ">
       <div data-aos="fade-up" className="brannd lg:w-1/3 flex flex-col gap-4">
         <div className="logo flex items-center ">
           <img src="/logo.png" className="lg:w-10 w-8" alt="" />

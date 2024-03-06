@@ -96,8 +96,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const getSearchResult = () => {
     return mockData.filter((item) =>
       searchBy
-        ? item.name.toLowerCase().includes(search)
-        : item.additionalDetails.category.toLocaleLowerCase().includes(search)
+        ? item.name.toLowerCase().includes(search.toLowerCase())
+        : item.additionalDetails.category
+            .toLowerCase()
+            .includes(search.toLowerCase())
     );
   };
 

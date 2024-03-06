@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../Context/Context";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { cartQuantity, settingSearch, searchByFunc } = useShoppingCart();
-  const [active, sectActive] = useState(false);
+  const [active, setActive] = useState<boolean>(false);
+  const [visible, setVisible] = useState<boolean>(true);
+
+  useEffect(() => {
+    let prevS = window.pageYOffset;
+    window.addEventListener("scroll", () => {
+      let currenSc = pageYOffset;
+      prevS > currenSc ? setVisible(false) : setVisible(true);
+      prevS = currenSc;
+    });
+  }, []);
 
   return (
     <nav>
@@ -59,29 +69,11 @@ const Navbar = () => {
         </div>
       </div>
 
-      <section className=" lg:hidden flex flex-col gap-3 bg-white h-[9rem] w-full shadow-lg fixed top-0 left-0 ">
-        <div className="search mx-4 flex border-[1px] border-primaryblue h-12 bg-gray-500 rounded-lg fixed z-0 top-[5.5rem]">
-          <input
-            type="search"
-            placeholder="Search"
-            className="rounded-l-lg border-none outline-none px-2 w-[14.5rem] "
-            onChange={(e) => settingSearch(e.target.value)}
-          />
-         <select
-            name=""
-            id=""
-            onChange={(e) => searchByFunc(e.target.value)}
-            className="px-2 border-x-[1px] border-primaryblue outline-none"
-          >
-            <option value="byname">Select Search type</option>
-            <option value="byname">Search by name</option>
-            <option value="bycategory">Search by Category</option>
-          </select>
-        </div>
-        <div className="h-20 px-4 flex w-full justify-between border-b-[1px] border-b-black/30 items-center fixed bg-white shadow-sm ">
+      <section className={`lg:hidden flex flex-col bg-white h-[8.5rem] w-full shadow-lg fixed ${!visible?"-top-0": "-top-20"}`}>
+        <div className="h-20 px-6 flex w-full justify-between border-b-[1px] border-b-black/30 items-center bg-white shadow-sm ">
           <section className="flex items-center gap-6">
             <div
-              onClick={() => sectActive(!active)}
+              onClick={() => setActive(!active)}
               className="flex flex-col space-y-2 "
             >
               <p className="w-8 h-[2px] bg-black"></p>
@@ -107,58 +99,77 @@ const Navbar = () => {
             </div>
             <img className="w-10" src="/Vector.png" alt="" />
           </div>
-
-          <div
-            className={`bg-white/60 backdrop-blur-lg ${
-              active ? "left-0" : "-left-[70vw]"
-            }  top-0 fixed h-screen w-[70vw] z-20`}
-          >
-            <header className="w-full py-8 px-4 bg-gray-300 flex flex-col gap-4 items-start">
-              <img src="/profile.svg" alt="" />
-              <p>Sign in | Register</p>
-            </header>
-            <section className="py-6 flex flex-col gap-6">
-              <Link
-                to="/"
-                onClick={() => sectActive(!active)}
-                className="flex gap-2 hover:text-primaryblue px-4 items-center"
-              >
-                <img src="/home.svg" alt="" />{" "}
-                <span className="text-base">Home</span>
-              </Link>
-              <Link
-                to="/carts"
-                onClick={() => sectActive(!active)}
-                className="flex gap-2 hover:text-primaryblue px-4 items-center"
-              >
-                <img src="/cart.svg" alt="" />{" "}
-                <span className="text-base">Carts</span>
-              </Link>
-              <Link
-                to="/"
-                onClick={() => sectActive(!active)}
-                className="flex gap-2 hover:text-primaryblue px-4 items-center"
-              >
-                <img src="/about.svg" alt="" />{" "}
-                <span className="text-base">About</span>
-              </Link>
-              <Link
-                to="/"
-                onClick={() => sectActive(!active)}
-                className="flex gap-2 hover:text-primaryblue px-4 items-center"
-              >
-                <img src="/contact.svg" alt="" />{" "}
-                <span className="text-base">Contact</span>
-              </Link>
-            </section>
-          </div>
-          <div
-            onClick={() => sectActive(!active)}
-            className={`overlay fixed w-[30%] h-screen top-0 ${
-              active ? "left-[70%]" : "-left-[30%]"
-            } bg-black/30 backdrop-blur-lg z-20`}
-          ></div>
         </div>
+        <div className="search m-auto w-[90vw] flex border-[1px] border-primaryblue h-12 bg-gray-500 rounded-lg">
+          <input
+            type="search"
+            placeholder="Search"
+            className="rounded-l-lg border-none outline-none px-2 w-full "
+            onChange={(e) => settingSearch(e.target.value)}
+          />
+          <select
+            name=""
+            id=""
+            onChange={(e) => searchByFunc(e.target.value)}
+            className="px-2 border-x-[1px] border-primaryblue outline-none"
+          >
+            <option value="byname">Select Search type</option>
+            <option value="byname">Search by name</option>
+            <option value="bycategory">Search by Category</option>
+          </select>
+        </div>
+
+        <div
+          className={`bg-white/60 backdrop-blur-lg ${
+            active ? "left-0" : "-left-[70vw]"
+          }  top-0 fixed h-screen w-[70vw] z-20`}
+        >
+          <header className="w-full py-8 px-4 bg-gray-300 flex flex-col gap-4 items-start">
+            <img src="/profile.svg" alt="" />
+            <p>Sign in | Register</p>
+          </header>
+          <section className="py-6 flex flex-col gap-6">
+            <Link
+              to="/"
+              onClick={() => setActive(!active)}
+              className="flex gap-2 hover:text-primaryblue px-4 items-center"
+            >
+              <img src="/home.svg" alt="" />{" "}
+              <span className="text-base">Home</span>
+            </Link>
+            <Link
+              to="/carts"
+              onClick={() => setActive(!active)}
+              className="flex gap-2 hover:text-primaryblue px-4 items-center"
+            >
+              <img src="/cart.svg" alt="" />{" "}
+              <span className="text-base">Carts</span>
+            </Link>
+            <Link
+              to="/"
+              onClick={() => setActive(!active)}
+              className="flex gap-2 hover:text-primaryblue px-4 items-center"
+            >
+              <img src="/about.svg" alt="" />{" "}
+              <span className="text-base">About</span>
+            </Link>
+            <Link
+              to="/"
+              onClick={() => setActive(!active)}
+              className="flex gap-2 hover:text-primaryblue px-4 items-center"
+            >
+              <img src="/contact.svg" alt="" />{" "}
+              <span className="text-base">Contact</span>
+            </Link>
+          </section>
+        </div>
+
+        <div
+          onClick={() => setActive(!active)}
+          className={`overlay fixed w-[30%] h-screen top-0 ${
+            active ? "left-[70%]" : "-left-[30%]"
+          } bg-black/30 backdrop-blur-lg z-20`}
+        ></div>
       </section>
     </nav>
   );

@@ -39,7 +39,7 @@ export default function CheckOut() {
 
   return (
     <div className="lg:pt-20 pt-32">
-      <main className="lg:px-20 px-4 flex flex-col gap-4">
+      <main className="lg:px-20 px-8 flex flex-col gap-4">
       <Link className="mt-10" to={"/carts"}><img src="/back.svg" className="w-10 h-10 p-2 rounded-full  bg-primaryblue" alt="" /></Link>
 
         <div className="mt-10">

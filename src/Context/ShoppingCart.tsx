@@ -13,7 +13,6 @@ export default function ShoppingCart() {
   const Discount = totals * (3 / 100);
   const tax = totals * (1 / 100);
   const finalTotal = totals - Discount + tax;
-  console.log(cartItems)
   return (
     <div className="lg:pt-20 pt-32 lg:px-20 px-4">
       {cartItems.length == 0 || cartItems == null ? (
