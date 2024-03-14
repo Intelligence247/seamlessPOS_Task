@@ -35,7 +35,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     []
   );
   const [search, setSearch] = useState("");
-  const [searchBy, setSearchBy] = useState<boolean>(false);
+  const [searchBy, setSearchBy] = useState<boolean>(true);
 
   const cartQuantity = cartItems.reduce(
     (quantiy, item) => item.quantity + quantiy,
@@ -91,7 +91,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     setSearch(searchValue);
   };
   const searchByFunc = (searchBy: string) => {
-    searchBy == "byname" ? setSearchBy(true) : setSearchBy(false);
+    searchBy == "bycategory" ? setSearchBy(false) : setSearchBy(true);
   };
   const getSearchResult = () => {
     return mockData.filter((item) =>

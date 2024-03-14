@@ -4,7 +4,6 @@ import { formatCurrency } from "./FornatCurrency";
 import { useShoppingCart } from "../Context/Context";
 import "aos/dist/aos.css";
 
-
 type storeItemProps = {
   id: number;
   name: string;
@@ -31,10 +30,10 @@ export default function EachItem({
 
   return (
     <div
-      data-aos="fade-up"
+      data-aos={'fade-up'}
       className="flex border-[1px] border-black/40 rounded-lg py-2 px-2 gap-6"
     >
-      <div className="img lg:w-[20rem] w-[10rem]  h-[12rem]">
+      <div className="imgC lg:w-[20rem] w-[10rem]  h-[12rem]">
         <img
           src={image}
           alt="Product Image"

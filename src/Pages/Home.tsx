@@ -1,10 +1,9 @@
 import EachItem from "../Components/EachItem";
-import { formatCurrency } from "../Components/FornatCurrency";
 import { useShoppingCart } from "../Context/Context";
 
 const Home = () => {
   const { getSearchResult } = useShoppingCart();
-  console.log(formatCurrency(9000))
+  
   return (
     <div className="lg:pt-20 pt-32 ">
       <div className="hero bg-[url(/bg.svg)]   bg-no-repeat h-[100vh] bg-cover bg-center gap-8 flex-col mb-10 ">
@@ -23,7 +22,9 @@ const Home = () => {
           </button>
         </div>
       </div>
-      <div className="lg:text-4xl text-2xl w-full text-center font-bold">Available products</div>
+      <div className="lg:text-4xl text-2xl w-full text-center font-bold">
+        Available products
+      </div>
 
       {getSearchResult().length >= 1 ? (
         <div className="itemContainer lg:mx-20 mx-4  grid lg:grid-cols-2 grid-cols-1 m-auto gap-4 border-[1px] border-primaryblue lg:p-4 p-2 my-4 rounded-lg">
@@ -39,7 +40,7 @@ const Home = () => {
         </div>
       )}
 
-      <div className="newletter bg-[#eff2f4] flex flex-col justify-center items-center py-6">
+      <div className="newletter bg-[#eff2f4] flex flex-col justify-center items-center h-[50vh]">
         <h1 className="font-bold lg:text-2xl text-xl">
           Subscribe on our newsletter
         </h1>
