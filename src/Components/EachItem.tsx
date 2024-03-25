@@ -2,7 +2,6 @@ import Rating from "./Rating";
 import { Link } from "react-router-dom";
 import { formatCurrency } from "./FornatCurrency";
 import { useShoppingCart } from "../Context/Context";
-import "aos/dist/aos.css";
 
 type storeItemProps = {
   id: number;
@@ -30,7 +29,6 @@ export default function EachItem({
 
   return (
     <div
-      data-aos={'fade-up'}
       className="flex border-[1px] border-black/40 rounded-lg py-2 px-2 gap-6"
     >
       <div className="imgC lg:w-[20rem] w-[10rem]  h-[12rem]">
@@ -77,7 +75,7 @@ export default function EachItem({
                     className="flex justify-center items-center rounded-lg h-8 w-8 bg-gray-300 hover:bg-white hover:border-[1.5px] hover:border-primaryblue/80 text-xl font-bold"
                     onClick={() => decreaseCartQuantity(id)}
                   >
-                    -{" "}
+                    -
                   </button>
                   <p>{quantity}</p>
                   <button

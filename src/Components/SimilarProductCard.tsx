@@ -9,7 +9,7 @@ const SimilarProductCard: React.FC<EachItemProps> = ({ eachProduct }) => {
     useShoppingCart();
   const quantity = getItemQuantity(eachProduct.id);
   return (
-    <div className="h-[17rem] w-[15rem] grid grid-rows-5 border-[1px] border-black/30 p-3 rounded-lg gap-4">
+    <div className="w-[15rem] grid grid-rows-5 border-[1px] border-black/30 p-3 rounded-lg gap-4">
       <div className="image row-span-3 p-1 grid place-content-center border-[1px] border-primaryblue rounded-lg">
         <img className="w-[12rem] h-[7rem] " src={eachProduct.image} alt="" />
       </div>
@@ -24,7 +24,7 @@ const SimilarProductCard: React.FC<EachItemProps> = ({ eachProduct }) => {
       </div>
       {quantity == 0 ? (
         <button
-          className="border-[1px] w-3/4 m-auto border-primaryblue rounded-2xl px-2 bg-primaryblue text-white lg:text-[14px] text-xs hover:bg-transparent hover:text-black p-1"
+          className="border-[1px] w-3/4 m-auto border-primaryblue rounded-2xl px-2  py-1 bg-primaryblue text-white hover:bg-transparent hover:text-black "
           onClick={() => increaseCartQuantity(eachProduct.id)}
         >
           + Add to Cart

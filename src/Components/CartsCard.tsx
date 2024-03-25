@@ -2,7 +2,6 @@ import { useShoppingCart } from "../Context/Context";
 import { formatCurrency } from "./FornatCurrency";
 import mockData from "../MockData.json";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 type cartcardProps = {
   id: number;

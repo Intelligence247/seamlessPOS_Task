@@ -16,6 +16,11 @@ const Navbar = () => {
     });
   }, []);
 
+  const handleInput = (e: any) => {
+    e.preventDefault();
+    searchByFunc(e.target.value);
+  };
+
   return (
     <nav>
       <div className="desktopNav lg:flex hidden h-20 items-center px-20 gap-2 justify-between border-b-[1px] border-b-black/40 fixed bg-white w-full top-0 z-20">
@@ -33,10 +38,10 @@ const Navbar = () => {
           <select
             name=""
             id=""
-            onChange={(e) => searchByFunc(e.target.value)}
+            onChange={(e) => handleInput(e)}
             className="px-2 border-x-[1px] border-primaryblue outline-none"
           >
-            <option value="byname">Select Search type</option>
+            <option value="default">Default Search</option>
             <option value="byname">Search by name</option>
             <option value="bycategory">Search by Category</option>
           </select>
@@ -57,7 +62,7 @@ const Navbar = () => {
             <img src="/orders.svg" alt="" />
             <p className="text-sm">Orders</p>
           </div>
-          <Link to="/carts">
+          <Link to="/carts" onClick={() => searchByFunc("")}>
             <div className="each flex flex-col justify-center items-center text-black/50 hover:text-black cursor-pointer relative">
               <p className="bg-red-400 text-white absolute -top-2 right-0 p-1 rounded-full w-6 h-6 flex justify-center items-center text-xs">
                 {cartQuantity}
@@ -69,7 +74,11 @@ const Navbar = () => {
         </div>
       </div>
 
-      <section className={`lg:hidden flex flex-col bg-white h-[8.5rem] w-full shadow-lg fixed z-20 ${!visible?"-top-0": "-top-20"}`}>
+      <section
+        className={`lg:hidden flex flex-col bg-white h-[8.5rem] w-full shadow-lg fixed z-20 ${
+          !visible ? "-top-0" : "-top-20"
+        }`}
+      >
         <div className="h-20 px-6 flex w-full justify-between border-b-[1px] border-b-black/30 items-center bg-white shadow-sm ">
           <section className="flex items-center gap-6">
             <div
@@ -110,10 +119,10 @@ const Navbar = () => {
           <select
             name=""
             id=""
-            onChange={(e) => searchByFunc(e.target.value)}
+            onChange={(e) => handleInput(e)}
             className="px-2 border-x-[1px] border-primaryblue outline-none"
           >
-            <option value="byname">Select Search type</option>
+            <option value="default">Default Search</option>
             <option value="byname">Search by name</option>
             <option value="bycategory">Search by Category</option>
           </select>

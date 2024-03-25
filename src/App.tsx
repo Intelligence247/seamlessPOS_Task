@@ -5,22 +5,21 @@ import ProductDetail from "./Pages/ProductDetail";
 import Footer from "./Components/Footer";
 import { ShoppingCartProvider } from "./Context/Context";
 import ShoppingCart from "./Context/ShoppingCart";
-import { useEffect } from "react";
-import AOS from "aos"
-import 'aos/dist/aos.css';
+// import { useEffect } from "react";
+// import AOS from "aos"
 import CheckOut from "./Pages/CheckOut";
 
 function App() {
-  useEffect(() => {
-    AOS.init({
-      disable: false,
-      duration: 600,
-      offset: 135,
-    });
-  }, []);
+  // useEffect(() => {
+  //   AOS.init({
+  //     disable: false,
+  //     duration: 600,
+  //     offset: 135,
+  //   });
+  // }, []);
 
   return (
-    <div data-aos="fade-up" className="bg-gray-50 relative ">
+    <div className="bg-gray-50 relative ">
       <ShoppingCartProvider>
         <Navbar />
         <Routes>

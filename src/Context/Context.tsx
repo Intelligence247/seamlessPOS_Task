@@ -6,6 +6,22 @@ type ShoppingCartProviderProps = {
   children: ReactNode;
 };
 
+// type dataStructure = [
+//   {
+//     id: number;
+//     name: string;
+//     description: string;
+//     price: number;
+//     image: string;
+//     features: [];
+//     additionalDetails: {
+//       type: string;
+//       category: string;
+//       warranty: string;
+//     };
+//   }
+// ];
+
 type CartItem = {
   id: number;
   quantity: number;
@@ -35,7 +51,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     []
   );
   const [search, setSearch] = useState("");
-  const [searchBy, setSearchBy] = useState<boolean>(true);
+  const [searchBy, setSearchBy] = useState<string>("");
 
   const cartQuantity = cartItems.reduce(
     (quantiy, item) => item.quantity + quantiy,
@@ -91,17 +107,36 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     setSearch(searchValue);
   };
   const searchByFunc = (searchBy: string) => {
-    searchBy == "bycategory" ? setSearchBy(false) : setSearchBy(true);
+    // searchBy == "bycategory" ? setSearchBy(false) : setSearchBy(true);
+    setSearchBy(searchBy);
   };
   const getSearchResult = () => {
     return mockData.filter((item) =>
-      searchBy
+      searchBy === "" || searchBy === "default"
+        ? item.name.toLowerCase().includes(search.toLowerCase()) ||
+          item.additionalDetails.category
+            .toLowerCase()
+            .includes(search.toLowerCase()) ||
+          item.description.toLowerCase().includes(search.toLowerCase())||
+          item.price.toString().includes(search.toLowerCase())
+        : searchBy === "byname"
         ? item.name.toLowerCase().includes(search.toLowerCase())
-        : item.additionalDetails.category
+        : searchBy === "bycategory"
+        ? item.additionalDetails.category
             .toLowerCase()
             .includes(search.toLowerCase())
+        : ""
     );
   };
+  // const getCartSearchResult = () => {
+  //   return cartItems.filter((item) =>
+  //     searchBy
+  //       ? item.name.toLowerCase().includes(search.toLowerCase())
+  //       : item.additionalDetails.category
+  //           .toLowerCase()
+  //           .includes(search.toLowerCase())
+  //   );
+  // };
 
   return (
     <ShoppingCartContext.Provider
