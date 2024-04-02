@@ -8,21 +8,21 @@ export default function WishList() {
   return (
     <div
       className={`${
-        isOpen ? "right-0" : "right-full"
+        isOpen ? "right-0" : "-right-full"
       } overflow-y-auto fixed justify-end  top-0 flex z-20`}
     >
       <div
       onClick={openWish}
       
         className={`overlay cursor-pointer ${
-          isOpen ? "left-0" : "left-full"
+          isOpen ? "lg:right-[40vw] right-[70vw]" : "-right-[100%]"
         } h-screen bg-black/20 backdrop-blur-md fixed top-0 lg:w-[60vw] w-[30vw] `}
       ></div>
       <div className="contentss flex flex-col  bg-white lg:w-[40vw] w-[70vw] h-screen shadow-2xl  gap-4">
-        <div className="border-black/30 border-b-2 text-xl font-bold text-center py-4 overflow-y-hidden flex items-center justify-end pr-2">
-          <div className="flex w-1/2 justify-between">
-          <h1 className="">My WishList</h1>
-          <img className="w-8 h-8" onClick={openWish} src="./logo.svg" alt="" />
+        <div className="border-black/30 border-b-2 text-center lg:py-5 py-4 overflow-y-hidden flex items-center justify-end pr-2">
+          <div className="flex w-2/3 justify-between pr-4">
+          <h1 className="font-bold lg:text-2xl text-xl">My WishList</h1>
+          <img className="w-8 h-8" onClick={openWish} src="./close.svg" alt="" />
           </div>
         </div>
         {wishItems.length === 0 || wishItems === null ? (

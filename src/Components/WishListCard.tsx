@@ -19,13 +19,13 @@ export default function WishListCard({ id }: wishcardProps) {
       <div className="img w-2/5 border-[1px] border-primary_green rounded-lg overflow-hidden">
         <img src={item.image} className="w-full h-full " alt="" />
       </div>
-      <div className="details lg:w-2/5 w-[53%] flex flex-col h-full gap-2">
+      <div className="details lg:w-[50%] w-[53%] flex flex-col h-full gap-2">
         <div className="nameDelete flex justify-between ">
           <h1 className="w-5/6 truncate font-bold">{item.name}</h1>
           <img
             onClick={() => removeFromWish(id)}
-            src="/logo.svg"
-            className="w-4"
+            src="/delete.svg"
+            className="w-6"
             alt=""
           />
         </div>
