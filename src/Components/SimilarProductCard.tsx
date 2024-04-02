@@ -24,7 +24,7 @@ const SimilarProductCard: React.FC<EachItemProps> = ({ eachProduct }) => {
       </div>
       {quantity == 0 ? (
         <button
-          className="border-[1px] w-3/4 m-auto border-primaryblue rounded-2xl px-2  py-1 bg-primaryblue text-white hover:bg-transparent hover:text-black "
+          className="border-[1px] w-3/4 m-auto border-primaryblue rounded-2xl px-2  py-1 bg-primaryblue text-white hover:bg-transparent hover:text-black"
           onClick={() => increaseCartQuantity(eachProduct.id)}
         >
           + Add to Cart

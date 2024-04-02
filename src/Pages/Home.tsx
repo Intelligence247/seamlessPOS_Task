@@ -3,13 +3,10 @@ import { useShoppingCart } from "../Context/Context";
 
 const Home = () => {
   const { getSearchResult } = useShoppingCart();
-  
   return (
     <div className="lg:pt-20 pt-32 ">
       <div className="hero bg-[url(/bg.svg)]   bg-no-repeat h-[100vh] bg-cover bg-center gap-8 flex-col mb-10 ">
-        <div
-          className="lg:w-1/2 w-2/3 flex justify-center h-full flex-col m-auto gap-8"
-        >
+        <div className="lg:w-1/2 w-2/3 flex justify-center h-full flex-col m-auto gap-8">
           <h1 className=" font-semibold lg:text-4xl text-2xl  flex flex-col">
             Latest Trending{" "}
             <p className="lg:text-4xl text-2xl pt-4 font-bold ">

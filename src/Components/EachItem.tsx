@@ -2,6 +2,7 @@ import Rating from "./Rating";
 import { Link } from "react-router-dom";
 import { formatCurrency } from "./FornatCurrency";
 import { useShoppingCart } from "../Context/Context";
+import { useState } from "react";
 
 type storeItemProps = {
   id: number;
@@ -21,25 +22,52 @@ export default function EachItem({
 }: storeItemProps) {
   const {
     getItemQuantity,
+    getWishQuantity,
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
+    increaseWishQuantity,
+    removeFromWish,
   } = useShoppingCart();
   const quantity = getItemQuantity(id);
+  const wish_quantity = getWishQuantity(id);
 
+  const [color, setColor] = useState<boolean>(true);
+  const handleWishClick = () => {
+    setColor(!color);
+    wish_quantity === 0 ? increaseWishQuantity(id) : removeFromWish(id);
+  };
   return (
-    <div
-      className="flex border-[1px] border-black/40 rounded-lg py-2 px-2 gap-6"
-    >
-      <div className="imgC lg:w-[20rem] w-[10rem]  h-[12rem]">
+    <div className="flex border-[1px] border-black/40 rounded-lg py-2 px-2 gap-6">
+      <div className="imgC lg:w-[15rem] w-[10rem] rounded-l-lg  h-[12rem] border-primary_green border-[1px]">
         <img
           src={image}
           alt="Product Image"
-          className="w-full rounded-l-lg h-full"
+          className="w-full h-full rounded-l-lg"
         />
       </div>
-      <div className="details flex flex-col">
-        <p className="name font-bold">{name}</p>
+      <div className="details flex flex-col lg:w-full w-48">
+        <div className="flex justify-between w-full items-center">
+          <h1 className="name font-bold truncate w-2/3">{name}</h1>
+          <svg
+            onClick={handleWishClick}
+            stroke={`${wish_quantity !== 0 ? "#fff" : "#00b517"}`}
+            fill="none"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            className={`lg:w-10 w-8 lg:h-10 h-8 lg:p-2 p-1.5 rounded-full false shadow-sm shadow-primary_green cursor-pointer ${
+              wish_quantity !== 0
+                ? "bg-primaryblue"
+                : "bg-white"
+            }`}
+            height="1em"
+            width="1em"
+          >
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+        </div>
         <div className="price flex items-center gap-4">
           <p className="price font-bold"> {formatCurrency(price)}</p>
           <p className="old_price line-through text-sm text-black/60 font-bold">

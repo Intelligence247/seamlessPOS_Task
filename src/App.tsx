@@ -8,6 +8,7 @@ import ShoppingCart from "./Context/ShoppingCart";
 // import { useEffect } from "react";
 // import AOS from "aos"
 import CheckOut from "./Pages/CheckOut";
+import WishList from "./Pages/WishList";
 
 function App() {
   // useEffect(() => {
@@ -22,6 +23,7 @@ function App() {
     <div className="bg-gray-50 relative ">
       <ShoppingCartProvider>
         <Navbar />
+        <WishList/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/carts" element={<ShoppingCart />} />

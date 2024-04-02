@@ -3,10 +3,10 @@ import { useShoppingCart } from "../Context/Context";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const { cartQuantity, settingSearch, searchByFunc } = useShoppingCart();
+  const { cartQuantity, openWish, wishItems, settingSearch, searchByFunc } =
+    useShoppingCart();
   const [active, setActive] = useState<boolean>(false);
   const [visible, setVisible] = useState<boolean>(false);
-
   useEffect(() => {
     let prevS = window.pageYOffset;
     window.addEventListener("scroll", () => {
@@ -58,9 +58,15 @@ const Navbar = () => {
             <img src="/message.svg" alt="" />
             <p className="text-sm">Message</p>
           </div>
-          <div className="each flex flex-col justify-center items-center text-black/50 hover:text-black cursor-pointer">
+          <div
+            onClick={openWish}
+            className="each flex flex-col justify-center items-center text-black/50 hover:text-black cursor-pointer relative"
+          >
+            <p className="bg-red-400 text-white absolute -top-2 right-0 p-1 rounded-full w-6 h-6 flex justify-center items-center text-xs">
+              {Number(wishItems.length)}
+            </p>
             <img src="/orders.svg" alt="" />
-            <p className="text-sm">Orders</p>
+            <p className="text-sm">Wishlist</p>
           </div>
           <Link to="/carts" onClick={() => searchByFunc("")}>
             <div className="each flex flex-col justify-center items-center text-black/50 hover:text-black cursor-pointer relative">
@@ -154,6 +160,15 @@ const Navbar = () => {
               <img src="/cart.svg" alt="" />{" "}
               <span className="text-base">Carts</span>
             </Link>
+            <Link
+              to="/carts"
+              onClick={() => (setActive(!active), openWish())}
+              className="flex gap-2 hover:text-primaryblue px-4 items-center"
+            >
+              <img src="/orders.svg" alt="" />
+              <p className="text-base">Wishlist</p>
+            </Link>
+
             <Link
               to="/"
               onClick={() => setActive(!active)}

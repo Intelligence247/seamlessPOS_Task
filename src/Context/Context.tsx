@@ -6,38 +6,34 @@ type ShoppingCartProviderProps = {
   children: ReactNode;
 };
 
-// type dataStructure = [
-//   {
-//     id: number;
-//     name: string;
-//     description: string;
-//     price: number;
-//     image: string;
-//     features: [];
-//     additionalDetails: {
-//       type: string;
-//       category: string;
-//       warranty: string;
-//     };
-//   }
-// ];
-
 type CartItem = {
+  id: number;
+  quantity: number;
+};
+
+type WishItem = {
   id: number;
   quantity: number;
 };
 
 type ShoppingCartContext = {
   getItemQuantity: (id: number) => number;
+  getWishQuantity: (id: number) => number;
   increaseCartQuantity: (id: number) => void;
+  increaseWishQuantity: (id: number) => void;
   decreaseCartQuantity: (id: number) => void;
   removeFromCart: (id: number) => void;
+  removeFromWish: (id: number) => void;
   cartQuantity: number;
+  wishQuantity: number;
   cartItems: CartItem[];
+  wishItems: WishItem[];
   removeAll: () => void;
   getSearchResult: () => any;
   settingSearch: (searchValue: string) => void;
   searchByFunc: (searchBy: string) => void;
+  openWish: () => void;
+  isOpen: boolean;
 };
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
 
@@ -50,16 +46,29 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     "shopping-cart",
     []
   );
+  const [wishItems, setWishItems] = useLocalStorage<WishItem[]>(
+    "shopping-wish",
+    []
+  );
   const [search, setSearch] = useState("");
   const [searchBy, setSearchBy] = useState<string>("");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const cartQuantity = cartItems.reduce(
     (quantiy, item) => item.quantity + quantiy,
     0
   );
 
+  const wishQuantity = wishItems.reduce(
+    (wish_quantity, item) => item.quantity + wish_quantity,
+    0
+  );
+
   function getItemQuantity(id: number) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
+  }
+  function getWishQuantity(id: number) {
+    return wishItems.find((item) => item.id === id)?.quantity || 0;
   }
 
   function increaseCartQuantity(id: number) {
@@ -69,6 +78,22 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       } else {
         return currItems.map((item) => {
           if (item.id === id) {
+            return { ...item, quantity: item.quantity + 1 };
+          } else {
+            return item;
+          }
+        });
+      }
+    });
+  }
+
+  function increaseWishQuantity(id: number) {
+    setWishItems((currItems) => {
+      if (currItems.find((item) => item.id === id) == null) {
+        return [...currItems, { id, quantity: 1 }];
+      } else {
+        return currItems.map((item) => {
+          if (item.quantity === id) {
             return { ...item, quantity: item.quantity + 1 };
           } else {
             return item;
@@ -99,6 +124,13 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       return currItems.filter((item) => item.id !== id);
     });
   }
+
+  function removeFromWish(id: number) {
+    setWishItems((currItems) => {
+      return currItems.filter((item) => item.id !== id);
+    });
+  }
+
   function removeAll() {
     setCartItems([]);
   }
@@ -107,7 +139,6 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     setSearch(searchValue);
   };
   const searchByFunc = (searchBy: string) => {
-    // searchBy == "bycategory" ? setSearchBy(false) : setSearchBy(true);
     setSearchBy(searchBy);
   };
   const getSearchResult = () => {
@@ -117,7 +148,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
           item.additionalDetails.category
             .toLowerCase()
             .includes(search.toLowerCase()) ||
-          item.description.toLowerCase().includes(search.toLowerCase())||
+          item.description.toLowerCase().includes(search.toLowerCase()) ||
           item.price.toString().includes(search.toLowerCase())
         : searchBy === "byname"
         ? item.name.toLowerCase().includes(search.toLowerCase())
@@ -128,29 +159,31 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         : ""
     );
   };
-  // const getCartSearchResult = () => {
-  //   return cartItems.filter((item) =>
-  //     searchBy
-  //       ? item.name.toLowerCase().includes(search.toLowerCase())
-  //       : item.additionalDetails.category
-  //           .toLowerCase()
-  //           .includes(search.toLowerCase())
-  //   );
-  // };
 
+  // const openWish = () => setIsOpen(!isOpen);
+  const openWish = () => {
+    setIsOpen((prevState) => !prevState);
+  };
   return (
     <ShoppingCartContext.Provider
       value={{
         getItemQuantity,
+        getWishQuantity,
         increaseCartQuantity,
         decreaseCartQuantity,
         removeFromCart,
+        removeFromWish,
         cartItems,
+        wishItems,
         cartQuantity,
+        wishQuantity,
         removeAll,
         getSearchResult,
         settingSearch,
         searchByFunc,
+        increaseWishQuantity,
+        openWish,
+        isOpen,
       }}
     >
       {children}
