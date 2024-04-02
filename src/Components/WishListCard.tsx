@@ -3,7 +3,6 @@ import mockData from "../MockData.json";
 import Rating from "./Rating";
 type wishcardProps = {
   id: number;
-  // quantity: number;
 };
 export default function WishListCard({ id }: wishcardProps) {
   const {

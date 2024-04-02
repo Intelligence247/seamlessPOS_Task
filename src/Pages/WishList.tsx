@@ -4,10 +4,7 @@ import { useShoppingCart } from "../Context/Context";
 
 export default function WishList() {
   const { wishItems, openWish, isOpen } = useShoppingCart();
-  function clearLocalStorage() {
-    localStorage.clear();
-    console.log("localStorage cleared");
-  }
+ 
   return (
     <div
       className={`${
