@@ -26,23 +26,23 @@ export default function CartsCard({ id, quantity }: cartcardProps) {
     });
   };
   return (
-    <div className="lg:grid grid-cols-5 flex flex-col justify-center gap-8 border-b-[1px] border-b-primaryblue p-4 rounded-lg">
-      <div className="img w-full h-full p-2 grid-cols-1">
+    <div className="lg:grid lg:grid-cols-5 flex flex-col lg:h-[9.5rem] h-[21rem] max-h-[22rem] justify-center lg:gap-8 gap-4 border-[1px] lg:border-b-[1px] border-primaryblue p-4 rounded-lg">
+      <div className="img lg:w-full w-4/5 m-auto lg:h-full h-2/5 p-2 col-span-1 lg:row-span-0 ro  border-primary_green border-[1px] rounded-lg">
         <img
-        onClick={ToastFUn}
+          onClick={ToastFUn}
           src={item.image}
-          className="rounded-lg lg:h-full lg:w-full w-64"
+          className="rounded-lg w-full h-full"
           alt=""
         />
       </div>
-      <div className="itemDetails flex flex-col gap-2 col-span-3">
+      <div className="itemDetails lg:h-full h-2/5 flex flex-col gap-2 col-span-3">
         <h1 className="font-bold">{item.name}</h1>
 
         <div className="desc">
           <b>Decription:</b> {item.description.slice(0, 65)}...
         </div>
         <div className="flex flex-col">
-          <div className="flex w-1/2 justify-between">
+          <div className="flex lg:w-1/2 lg:justify-between gap-4 lg:gap-0">
             <button
               className="flex justify-center items-center rounded-lg h-8 w-8 bg-gray-300 hover:bg-white hover:border-[1.5px] hover:border-primaryblue/80 text-xl font-bold"
               onClick={() => decreaseCartQuantity(id)}
@@ -54,16 +54,16 @@ export default function CartsCard({ id, quantity }: cartcardProps) {
               onClick={() => (ToastFUn(), removeFromCart(id))}
             >
               <ToastContainer
-                  position="bottom-right"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                  theme="dark"
-                />
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+              />
               Remove
             </button>
             <button
@@ -76,9 +76,9 @@ export default function CartsCard({ id, quantity }: cartcardProps) {
         </div>
       </div>
 
-      <div className="col-span-1 flex lg:flex-col gap-4">
+      <div className="col-span-1 flex lg:flex-col gap-4 h-1/5 items-center">
         <b>{formatCurrency(item.price)}</b>
-        <p className="px-3 rounded-lg py-1 w-max border-black/30 border-[1px]">
+        <p className="px-3 rounded-lg py-1 w-max h-max border-black/30 border-[1px]">
           <b>Qty:</b> {quantity}
         </p>
       </div>

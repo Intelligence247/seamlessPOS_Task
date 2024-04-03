@@ -26,7 +26,7 @@ export default function ShoppingCart() {
           </Link>
         </div>
       ) : (
-        <div className="lg:w-[80vw] lg:h-[80vh] grid lg:grid-cols-3 grid-cols-1 m-auto p-4 border-[1px] border-black/30 my-10 rounded-lg lg:gap-0 gap-8">
+        <div className="lg:w-[80vw] lg:h-[80vh] grid lg:grid-cols-3 grid-cols-1 m-auto p-4 border-[1px] border-black/30 lg:my-10 rounded-lg lg:gap-y-0 gap-y-8">
           <section className="col-span-2 shadow-lg overflow-x-hidden overflow-y-auto lg:h-[76vh] h-[80vh] pb-8">
             {cartItems.map((cart) => (
               <CartsCard key={cart.id} {...cart} />
@@ -48,7 +48,7 @@ export default function ShoppingCart() {
             </div>
           </section>
 
-          <aside className="col-span-1 p-4 mx-6 border-[1px] border-black/30 shadow-md h-max rounded-lg">
+          <aside className="col-span-1 lg:p-4 p-4 lg:mx-6 mx-5 border-[1px] border-black/30 shadow-md h-max rounded-lg">
             <div className="totals flex flex-col gap-6">
               <div className="flex justify-between">
                 <b>Subtotal:</b> <p>{formatCurrency(totals)}</p>

@@ -38,15 +38,15 @@ export default function EachItem({
     wish_quantity === 0 ? increaseWishQuantity(id) : removeFromWish(id);
   };
   return (
-    <div className="flex border-[1px] border-black/40 rounded-lg py-2 px-2 gap-6">
-      <div className="imgC lg:w-[15rem] w-[10rem] rounded-l-lg  h-[12rem] border-primary_green border-[1px]">
+    <div className="lg:flex grid grid-cols-5 border-[1px] border-black/40 rounded-lg py-2 px-2 gap-6">
+      <div className="imgC lg:w-[15rem] col-span-2 rounded-l-lg  h-[12rem] border-primary_green border-[1px]">
         <img
           src={image}
           alt="Product Image"
           className="w-full h-full rounded-l-lg"
         />
       </div>
-      <div className="details flex flex-col lg:w-full w-48">
+      <div className="details flex flex-col lg:w-full col-span-3">
         <div className="flex justify-between w-full items-center">
           <h1 className="name font-bold truncate w-2/3">{name}</h1>
           <svg
