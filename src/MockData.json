@@ -267,5 +267,22 @@
       "category": "headphones",
       "warranty": 2
     }
+  },
+  {
+    "id": 17,
+    "name": "Wireless Earbuds",
+    "description": "Enjoy true wireless freedom with these convenient and compact earbuds.",
+    "price": 79.99,
+    "image": "/mockImages/headphone4.jpg",
+    "features": [
+      "True wireless design",
+      "Touch controls for music and calls",
+      "Long battery life"
+    ],
+    "additionalDetails": {
+      "type": "Small",
+      "category": "headphones",
+      "warranty": 2
+    }
   }
 ]
